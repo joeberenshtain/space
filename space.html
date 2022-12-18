@@ -1,0 +1,103 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        label {
+            position: relative;
+            display: inline-block;
+
+            height: inherit;
+            font-size: 100%;
+        }
+        input {
+            position: relative;
+
+            height: inherit;
+            width: 80px;
+        }
+        p {
+            height: 40px;
+        }
+        div {
+            position: absolute;
+
+            width: 50vmax;
+            aspect-ratio: 1;
+
+            padding: 20px;
+        }
+        canvas {
+            position: absolute;
+
+            width: 50vmax;
+            aspect-ratio: 1;
+
+        }
+        @media (min-width: 0) {
+            canvas {
+                right: 0%;
+                top: 50%;
+
+                transform: translate(-0%, -50%);
+            }
+            div {
+                left: 0%;
+                top: 50%;
+
+                transform: translate(-0%, -50%);
+                
+            }
+        }
+        @media (min-width: 0px) and (orientation: portrait) {
+            canvas {
+                left: 50%;
+                bottom: 0%;
+
+                transform: translate(-50%, 0%);
+            }
+            div {
+                left: 50%;
+                top: 0%;
+
+                transform: translate(-50%, 0%);
+            }
+        }
+        @media (min-width: 200vmin) and (orientation: landscape) {
+            canvas, div {
+                width: 100vmin; 
+            }
+        }
+        @media (min-height: 200vmin) and (orientation: portrait) {
+            canvas, div {
+                width: 100vmin;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Add Objects:</h1>
+
+        <p>
+            <label for="color">Color:</label>
+            <input type="color" name="color" id="color">
+        </p>
+        <br>
+        <p>
+            <label for="radius">Radius:</label>
+            <input type="number" name="radius" id="radius" value="1">
+        </p>
+        
+    </div>
+    <canvas id="c"></canvas>
+    <script src="space.js"></script>
+</body>
+</html>
