@@ -31,13 +31,13 @@ class Ball {
 	collision = true;
 	mass = 1;
 
-	constructor(pos, vel, radius, color) {
+	constructor(pos, vel, radius, mass, color) {
 		this.pos = pos;
 		this.vel = vel;
 		this.radius = radius;
 		this.color = color;
 
-        this.mass = this.radius**2;
+        this.mass = mass;
 	}
 	draw() {
 		c.fillStyle = this.color;
@@ -111,6 +111,11 @@ class Ball {
 
 const inputRadius = document.getElementById('radius');
 const inputColor = document.getElementById('color');
+const inputMass = document.getElementById('mass');
+
+const inputX = document.getElementById('x');
+const inputY = document.getElementById('y');
+
 const canvas = document.getElementById('c');
 const c = canvas.getContext('2d');
 canvas.width = 700;
@@ -130,10 +135,15 @@ canvas.addEventListener('click', (e) => {
     y*=scale;
     console.log("test");
 
-    let radius = parseFloat(inputRadius.value); 
+    let radius = parseFloat(inputRadius.value);
+    let mass = parseFloat(inputMass.value); 
     let color = inputColor.value;
+
+    let deltaX = parseFloat(inputX.value);
+    let deltaY = parseFloat(inputY.value);
+
     console.log({x:x, y:height-y});
-    const ball = new Ball({x: x, y: height-y}, new Vector2D(0, 0), radius, color);  
+    const ball = new Ball({x: x, y: height-y}, new Vector2D(deltaX, deltaY), radius, mass, color);  
     balls.push(ball);
 });
 
