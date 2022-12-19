@@ -133,7 +133,6 @@ canvas.addEventListener('click', (e) => {
 
     x*=scale;
     y*=scale;
-    console.log("test");
 
     let radius = parseFloat(inputRadius.value);
     let mass = parseFloat(inputMass.value); 
@@ -142,7 +141,6 @@ canvas.addEventListener('click', (e) => {
     let deltaX = parseFloat(inputX.value);
     let deltaY = parseFloat(inputY.value);
 
-    console.log({x:x, y:height-y});
     const ball = new Ball({x: x, y: height-y}, new Vector2D(deltaX, deltaY), radius, mass, color);  
     balls.push(ball);
 });
@@ -195,4 +193,3 @@ function distanceSquared(pos1, pos2) {
     return (pos1.x - pos2.x)**2 + (pos1.y - pos2.y)**2
 }   
 init();
-
